@@ -27,12 +27,12 @@ const FloatedButton = () => {
     return (
         <View
             style={styles.container}
-            onLayout={({ nativeEvent }) => { alert(nativeEvent.layout.height) }}
         >
             <TextInput
                 value={textInput}
                 onChangeText={(text) => settextInput(text)}
                 style={styles.input}
+                placeholder={"Enter todo text..."}
             />
 
             <View width={16} />
@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
         bottom: 25,
         flexDirection: "row",
         marginHorizontal: 20,
+        backgroundColor: "white",
     },
     input: {
         flex: 1,

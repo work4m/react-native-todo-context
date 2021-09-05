@@ -15,10 +15,22 @@ export const TodoContextProvider = (props) => {
     const _addNotes = (item) => {
         const _addObject = { _id: todoNotes.length, text: item, status: noteStatus.Pending };
         settodoNotes(prev => [...prev, _addObject]);
+    }    
+
+    // add notes
+    const _changeStatus = (id, status) => {
+        const newList = todoNotes?.map((note) => {
+            if (note?._id === id) {
+                return { ...note, status };
+            }
+            return note
+        });
+
+        settodoNotes(newList);
     }
 
     return (
-        <TodoStore.Provider value={{ todoNotes, _addNotes }}>
+        <TodoStore.Provider value={{ todoNotes, _addNotes, _changeStatus }}>
             {props.children}
         </TodoStore.Provider>
     );
